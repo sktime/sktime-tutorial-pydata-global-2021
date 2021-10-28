@@ -1,8 +1,10 @@
 # -*- coding: utf-8 -*-
+from pathlib import Path
 from warnings import simplefilter
 
 import matplotlib.pyplot as plt
 import numpy as np
+import pandas as pd
 import seaborn as sns
 from matplotlib.ticker import MaxNLocator
 
@@ -78,3 +80,27 @@ def plot_windows(cv, y, title=""):
     # remove duplicate labels/handles
     handles, labels = [(leg[:2]) for leg in ax.get_legend_handles_labels()]
     ax.legend(handles, labels)
+
+
+def load_benzene_concentration_sample():
+    """Load sample of benzene concentration dataset [1].
+
+    Missing values have been imputed using the mean value.
+
+    Returns
+    -------
+    X : np.ndarray
+        Feature time series data.
+    y : np.ndarray
+        Target data.
+
+    References
+    ----------
+    .. [1] https://zenodo.org/record/3902673#.YXqxNy8w3UI
+    """
+    file = Path(__file__).parent.parent / "data/benzene_concentration_sample.csv"
+    df = pd.read_csv(file)
+    y = df["target"].to_numpy()
+    X = df.drop(columns="target").to_numpy()
+    X = np.expand_dims(X, axis=1)
+    return X, y
