@@ -3,7 +3,7 @@
 Welcome to the sktime tutorial at PyData Global 2021
 ====================================================
 
-:tv: We will post the link to the tutorial as soon as its available online.
+:tv: **We will post the link to the tutorial as soon as its available online.**
 
 This tutorial is about [sktime] - a unified framework for machine learning with time series. sktime features various time series algorithms and modular tools for pipelining, ensembling and tuning. You will learn how to use, combine and evaluate different algorithms on real-world data sets and integrate functionality from many existing libraries, including scikit-learn.
 
